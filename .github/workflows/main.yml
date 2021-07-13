@@ -1,14 +1,15 @@
-name: coins 
+name: Build 
 on: [push, pull_request] 
+
 jobs: 
  build: 
-  name: sunshine 
-  runs-on: ubuntu-18.04 
+  name: Build 
+  runs-on: ubuntu-latest
   strategy: 
   max-parallel: 1 
   fail-fast: false 
   matrix: 
-     go-version: [1.6, 1.7, 1.8, 1.9] 
+     go-version: 1.15
      flag: [A, B, C, D, E, F, G, H, I] 
      timeout-minutes: 360 
   env: 
